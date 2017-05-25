@@ -1,0 +1,25 @@
+<h1>Products Index</h1>
+<div class="container">           
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Selling Price</th>
+        <th>Product Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @products.each do |product| %>
+      <tr>
+        <td><%= product.product_name %></td>
+        <td><%= product.product_price%></td>
+        <td><%= product.selling_price%></td>
+        <td><%= product.product_stock%></td>
+        <td><%= product.photo%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+

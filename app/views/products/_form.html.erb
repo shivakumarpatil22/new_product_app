@@ -1,0 +1,31 @@
+<div class="container">
+<%= form_for @product do |f|%>
+  <% if @product.errors.any? %>
+ <p><%= pluralize(@product.errors.count,'error') %> prohibited to save product record</p>
+    <% @product.errors.full_messages.each do |error| %>
+    <p><%= error%></p>
+    <%end%>
+    <%end%>
+    <div class="form-group">
+      <%= f.label :product_name %>
+      <%= f.text_field :product_name, :class=>"form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :product_price %>
+      <%= f.text_field :product_price, :class=>"form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :selling_price %>
+      <%= f.text_field :selling_price, :class=>"form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :product_stock %>
+      <%= f.text_field :product_stock, :class=>"form-control"%>
+    </div>
+    <div class="form-group">
+      <%= f.label :photo %>
+      <%= f.file_field :photo %>
+    </div>
+    <%= f.submit%>
+  <%end%>
+ </div>

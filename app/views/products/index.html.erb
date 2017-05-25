@@ -1,0 +1,37 @@
+<h1>Products Index</h1>
+<%= will_paginate @posts%>
+<div class="container">           
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Product Name</th>
+        <th>Product Price</th>
+        <th>Selling Price</th>
+        <th>Product Stock</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @products.each do |product| %>
+      <tr>
+        <td><%= product.product_name %></td>
+        <td><%= product.product_price%></td>
+        <td><%= product.selling_price%></td>
+        <td><%= product.product_stock%></td>
+        <td><%= product.photo%></td>
+
+		<td><%= link_to 'show', product_path(product.id)%></td>
+        <td><%= link_to 'edit', edit_product_path(product.id)%></td>
+        <td><%= link_to 'destroy', product, method: :delete, data:{confirm: 'Are you Sure'}%></td>
+        <td><%= link_to 'Send Email', send_mail_product_path(product.id), method: :post, data:{confirm: 'Are You Sure to Send a Mail'}%></td>
+         <td><%= link_to 'download', download_details_product_path(product.id, format: :pdf), :target=>'_blank'%></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+</div>
+<%= link_to 'New product', new_product_path %>
+
+
+
+
